@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+double getDouble(char*, char*);
+int getInt(char*, char*);
+
 int main() {
     printf("%s\n", "Welcome to \"TEMPLE\" store");
     double price = getDouble("\tEnter item price: ", "\tThat is not a valid item price.\n\tPlease run the program again.");
@@ -22,12 +25,12 @@ double getDouble(char* prompt, char* onFail) {
 }
 
 int getInt(char* prompt, char* onFail) {
-	int i;
+	double i;
 	printf("%s", prompt);
-	scanf("%d", &i);
-	if (i <= 0) {
+	scanf("%lf", &i);
+	if (i <= 0 || i != (int)i) {
 		printf("\n%s\n", onFail);
 		exit(EXIT_FAILURE);
 	}
-	return i;
+	return (int)i;
 }
