@@ -13,7 +13,7 @@ int main() {
 	double hourly = getDouble("Enter Hourly Salary: ", "This is not a valid hourly salary amount.\nPlease run the program again.");
 	double weekly = getDouble("Enter Weekly Hours: ", "This is not a weekly time.\nPlease run the program again.");
 	calculate(eID, hourly, weekly);
-	printf("\n%s", "Thank you for using \"TEMPLE HUMAN RESOURCES\"");
+	printf("\n%s\n", "Thank you for using \"TEMPLE HUMAN RESOURCES\"");
 	return EXIT_SUCCESS;
 }
 
