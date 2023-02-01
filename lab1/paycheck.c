@@ -19,8 +19,8 @@ int main() {
 
 double getDouble(char* prompt, char* onFail) {
 	double i;
-	printf(prompt);
-	scanf("%f", &i);
+	printf("%s", prompt);
+	scanf("%lf", &i);
 	if (i <= 0) {
 		printf("\n%s\n", onFail);
 		return EXIT_FAILURE;
@@ -30,7 +30,7 @@ double getDouble(char* prompt, char* onFail) {
 
 int getInt(char* prompt, char* onFail) {
 	int i;
-	printf(prompt);
+	printf("%s", prompt);
 	scanf("%d", &i);
 	if (i <= 0) {
 		printf("\n%s\n", onFail);
