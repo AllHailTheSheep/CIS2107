@@ -8,12 +8,12 @@ void calculate(int, double, double);
 const char* line = "=====================================";
 
 int main() {
-	printf("%s\n\n", "Welcome to \"TEMPLE HUMAN RESOURCES\"");
+	printf("%s\n", "Welcome to \"TEMPLE HUMAN RESOURCES\"");
 	int eID = getInt("Enter Employee ID: ", "This is not a valid Employee Number.\nPlease run the program again.");
 	double hourly = getDouble("Enter Hourly Salary: ", "This is not a valid hourly salary amount.\nPlease run the program again.");
 	double weekly = getDouble("Enter Weekly Hours: ", "This is not a weekly time.\nPlease run the program again.");
 	calculate(eID, hourly, weekly);
-	printf("\n%s\n", "Thank you for using \"TEMPLE HUMAN RESOURCES\"");
+	printf("%s\n", "Thank you for using \"TEMPLE HUMAN RESOURCES\"");
 	return EXIT_SUCCESS;
 }
 
