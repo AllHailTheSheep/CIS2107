@@ -23,7 +23,7 @@ double getDouble(char* prompt, char* onFail) {
 	scanf("%lf", &i);
 	if (i <= 0) {
 		printf("\n%s\n", onFail);
-		return EXIT_FAILURE;
+		exit(EXIT_FAILURE);
 	}
 	return i;
 }
@@ -34,7 +34,7 @@ int getInt(char* prompt, char* onFail) {
 	scanf("%d", &i);
 	if (i <= 0) {
 		printf("\n%s\n", onFail);
-		return EXIT_FAILURE;
+		exit(EXIT_FAILURE);
 	}
 	return i;
 }
