@@ -9,9 +9,9 @@ const char* line = "=====================================";
 
 int main() {
 	printf("%s\n\n", "Welcome to \"TEMPLE HUMAN RESOURCES\"");
-	int eID = 999999; // getInt("Enter Employee ID: ", "This is not a valid Employee Number.\nPlease run the program again.");
-	double hourly = 25; // getDouble("Enter Hourly Salary: ", "This is not a valid hourly salary amount.\nPlease run the program again.");
-	double weekly = 44; // getDouble("Enter Weekly Hours: ", "This is not a weekly time.\nPlease run the program again.");
+	int eID = getInt("Enter Employee ID: ", "This is not a valid Employee Number.\nPlease run the program again.");
+	double hourly = getDouble("Enter Hourly Salary: ", "This is not a valid hourly salary amount.\nPlease run the program again.");
+	double weekly = getDouble("Enter Weekly Hours: ", "This is not a weekly time.\nPlease run the program again.");
 	calculate(eID, hourly, weekly);
 	printf("\n%s", "Thank you for using \"TEMPLE HUMAN RESOURCES\"");
 	return EXIT_SUCCESS;
