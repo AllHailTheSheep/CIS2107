@@ -46,11 +46,11 @@ void calculate(int eID, double hourly, double weekly) {
 	printf("\tWeekly Time: %.2f\n", weekly);
 	double regular, overtime, net;
 	regular = weekly > 40 ? hourly * 40 : weekly * hourly;
-	
 	overtime = weekly > 40 ? (weekly - 40) * (1.5 * hourly) : 0;
 	net = regular + overtime;
 	printf("\tRegular Pay: $%.2f\n", regular);
 	printf("\tOvertime: $%.2f\n", overtime);
 	printf("\tNet Pay: $%.2f\n", net);
 	printf("\t%s\n", line);	
+	return;
 }
