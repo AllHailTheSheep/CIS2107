@@ -3,6 +3,8 @@
 
 double getDouble(char*, char*);
 double getDoubleR(char*, char*, int);
+int getInt(char*, char*);
+int getIntR(char*, char*, int);
 
 int main() {
     int pin;
