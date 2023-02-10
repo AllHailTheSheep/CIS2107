@@ -25,7 +25,7 @@ double getDoubleR(char* prompt, char* onFail, int fails) {
 		printf("%s\n", onFail);
 		i = getDoubleR(prompt, onFail, ++fails);
 	}
-    if (fails >= 2) {
+    if (fails >= 3) {
         printf("%s\n", onFail);
         printf("%s\n", "Too may attempts. Exiting...\n");
         exit(EXIT_FAILURE);
@@ -42,9 +42,9 @@ int getIntR(char* prompt, char* onFail, int fails) {
 	scanf("%d", &i);
 	if (i <= 0 && fails < 2) {
 		printf("%s\n", onFail);
-		exit(EXIT_FAILURE);
+		i = getIntR(prompt, onFail, ++fails);
 	}
-    if (fails >= 2) {
+    if (fails >= 3) {
         printf("%s\n", onFail);
         printf("%s\n", "Too many attempt. Exiting..\n");
         exit(EXIT_FAILURE);
