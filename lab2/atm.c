@@ -6,7 +6,7 @@ double getDouble(char*, char*);
 double getDoubleR(char*, char*, int);
 int getInt(char*, char*);
 int getIntR(char*, char*, int);
-void printOptons();
+void printOptions();
 int getIntAndValidate(char*, char*, int*, size_t);
 bool valueInArray(int, int*, size_t);
 
