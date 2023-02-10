@@ -19,7 +19,7 @@ int main() {
     pin = getInt("Enter your PIN: ", "Not a valid PIN.");
     while (!QUIT) {
         printOptions();
-        int option = getIntAndValidate("Choose an option: ", NULL, OPTIONS, 4);
+        int option = getIntAndValidate("Choose an option: ", "", OPTIONS, 4);
         printf("%d\n", option);
         if (option == 4) {
             QUIT = true;
