@@ -8,7 +8,7 @@ int getInt(char*, char*);
 int getIntR(char*, char*, int);
 void printOptions();
 int getIntAndValidate(char*, char*, const int*, size_t);
-bool valueInArray(int, int*, size_t);
+bool valueInArray(int, const int*, size_t);
 
 int const OPTIONS[4] = {1, 2, 3, 4};
 
@@ -49,7 +49,7 @@ double getDoubleR(char* prompt, char* onFail, int fails) {
 	return i;
 }
 
-bool valueInArray(int val, int *arr, size_t n) {
+bool valueInArray(int val, const int *arr, size_t n) {
     // This function was borrowed from Dimitroff's answer to this StackOverflow question: https://stackoverflow.com/questions/39742123/check-if-value-is-already-present-in-array
     for(size_t i = 0; i < n; i++) {
         if(arr[i] == val)
