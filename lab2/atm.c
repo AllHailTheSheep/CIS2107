@@ -7,7 +7,7 @@ double getDoubleR(char*, char*, int);
 int getInt(char*, char*);
 int getIntR(char*, char*, int);
 void printOptions();
-int getIntAndValidate(char*, char*, int*, size_t);
+int getIntAndValidate(char*, char*, const int*, size_t);
 bool valueInArray(int, int*, size_t);
 
 int const OPTIONS[4] = {1, 2, 3, 4};
@@ -58,7 +58,7 @@ bool valueInArray(int val, int *arr, size_t n) {
     return false;
 }
 
-int getIntAndValidate(char* prompt, char* onFail, int* valid, size_t size) {
+int getIntAndValidate(char* prompt, char* onFail, const int* valid, size_t size) {
     int res = getIntR(prompt, onFail, 0);
     if (!valueInArray(res, valid, size)) {
         printf("g%s\n", "Not a valid option. Please try again.");
