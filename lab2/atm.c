@@ -7,6 +7,8 @@ double getDoubleR(char*, char*, int);
 int getInt(char*, char*);
 int getIntR(char*, char*, int);
 void printOptons();
+int getIntAndValidate(char*, char*, int*, size_t);
+bool valueInArray(int, int*, size_t);
 
 int const OPTIONS[4] = {1, 2, 3, 4};
 
