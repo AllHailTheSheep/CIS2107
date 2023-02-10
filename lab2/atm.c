@@ -6,7 +6,7 @@ double getDoubleR(char*, char*, int);
 
 int main() {
     int pin;
-    pin = getInt("Enter your PIN: ", "Not a valid PIN.");
+    pin = getDouble("Enter your PIN: ", "Not a valid PIN.");
 
     return EXIT_SUCCESS;
 
