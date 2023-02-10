@@ -6,8 +6,7 @@ double getDoubleR(char*, char*, int);
 
 int main() {
     int pin;
-    pin = getDouble("Enter your PIN: ", "Not a valid PIN.");
-
+    pin = getInt("Enter your PIN: ", "Not a valid PIN.");
     return EXIT_SUCCESS;
 
 }
@@ -21,23 +20,32 @@ double getDoubleR(char* prompt, char* onFail, int fails) {
 	printf("%s", prompt);
 	scanf("%lf", &i);
 	if (i <= 0 && fails < 2) {
-		printf("\n%s\n", onFail);
+		printf("%s\n", onFail);
 		i = getDoubleR(prompt, onFail, ++fails);
 	}
     if (fails >= 2) {
-        printf("\n%s\n", onFail);
-        printf("%s\n", "Too may attempts. Exiting...");
+        printf("%s\n", onFail);
+        printf("%s\n", "Too may attempts. Exiting...\n");
+        exit(EXIT_FAILURE);
     }
 	return i;
 }
+int getInt(char *prompt, char* onFail) {
+    return getIntR(prompt, onFail, 0);
+}
 
-int getInt(char* prompt, char* onFail) {
+int getIntR(char* prompt, char* onFail, int fails) {
 	int i;
 	printf("%s", prompt);
 	scanf("%d", &i);
-	if (i <= 0) {
-		printf("\n%s\n", onFail);
+	if (i <= 0 && fails < 2) {
+		printf("%s\n", onFail);
 		exit(EXIT_FAILURE);
 	}
+    if (fails >= 2) {
+        printf("%s\n", onFail);
+        printf("%s\n", "Too many attempt. Exiting..\n");
+        exit(EXIT_FAILURE);
+    }
 	return i;
 }
