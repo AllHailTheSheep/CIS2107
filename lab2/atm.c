@@ -60,7 +60,7 @@ bool valueInArray(int val, const int *arr, size_t n) {
 
 int getIntAndValidate(char* prompt, char* onFail, const int* valid, size_t size) {
     int res = getIntR(prompt, onFail, 0);
-    if (!valueInArray(res, valid, size)) {
+    if (valueInArray(res, valid, size)) {
         printf("g%s\n", "Not a valid option. Please try again.");
         res = getIntAndValidate(prompt, onFail, valid, size);
     }
