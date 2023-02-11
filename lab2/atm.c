@@ -5,7 +5,7 @@
 int getWithdrawalAmount();
 int getOption();
 int getPIN();
-int getInt(char*, char*);
+int getInt(char*);
 void printOptions();
 
 int  OPTIONS[4] = {1, 2, 3, 4};
@@ -48,7 +48,7 @@ int getOption() {
     char* prompt = "Choose an option: "; 
     char* onFail = "Not a valid option.";
     while (true) {
-        int res = getInt(prompt, onFail);
+        int res = getInt(prompt);
         if (!(res == 1 || res == 2 || res == 3 || res == 4)) {
             printf("%s\n", onFail);
         } else {
@@ -62,7 +62,7 @@ int getWithdrawalAmount(double bal) {
     char* onFail = "Withdwal amounts must be a multiple of 20, more than zero and less than the amount in your account.\nThere is a $1000/day limit.";
     int fails = 0;
     while (fails < MAX_FAILS) {
-        int res = getInt(prompt, onFail);
+        int res = getInt(prompt);
         if (res <= 0 || res % 20 != 0 || res > bal) {
             printf("%s\n", onFail);
             fails++;
@@ -79,7 +79,7 @@ int getPIN() {
     char* onFail = "Not a valid PIN.";
     int fails = 0;
     while (fails < MAX_FAILS) {
-        int res = getInt(prompt, onFail);
+        int res = getInt(prompt);
         if (res <= 0) {
             printf("%s\n", onFail);
             fails++;
