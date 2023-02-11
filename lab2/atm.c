@@ -6,6 +6,7 @@ int getWithdrawalAmount();
 int getOption();
 int getPIN();
 int getInt(char*);
+void printReceipt(double, int);
 void printOptions();
 
 int  OPTIONS[4] = {1, 2, 3, 4};
@@ -28,6 +29,8 @@ int main() {
         case 2: ;
             // cash withdrawal
             int amt = getWithdrawalAmount(balance);
+            printReceipt(balance, -amt);
+            balance -= amt;
             transactioncount++;
             break;
         case 3: ;
@@ -100,6 +103,12 @@ int getInt(char* prompt) {
 		return -1;
 	}
 	return (int)i;
+}
+
+void printReceipt(double balance, int dx) {
+    printf("%s\nPrevoius balance: %f\n", LINE, balance);
+    printf("Balance change: %.2f\n", (double) dx);
+    printf("New balance = %.2f\n%s\n", (double) balance + dx, LINE);
 }
 
 void printOptions() {
