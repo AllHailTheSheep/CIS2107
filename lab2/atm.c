@@ -91,13 +91,13 @@ int getPIN() {
     exit(EXIT_FAILURE);
 }
 
-int getInt(char* prompt, char* onFail) {
+int getInt(char* prompt) {
 	double i;
 	printf("%s", prompt);
 	scanf("%lf", &i);
 	if (i != (int)i) {
-		printf("\n%s\n", onFail);
-		return -1;
+		printf("\n%s\n", "Not an integer!");
+		exit(EXIT_FAILURE);
 	}
 	return (int)i;
 }
