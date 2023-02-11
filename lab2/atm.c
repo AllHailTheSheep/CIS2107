@@ -122,7 +122,6 @@ int getPIN() {
 }
 
 int getInt(char* prompt) {
-    fseek(stdin, 0, SEEK_END);
 	double i;
 	printf("%s", prompt);
 	scanf("%lf", &i);
