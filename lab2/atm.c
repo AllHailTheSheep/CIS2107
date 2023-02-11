@@ -10,6 +10,7 @@ void printOptions();
 int getIntAndValidate(char*, char*, int*, size_t);
 
 int  OPTIONS[4] = {1, 2, 3, 4};
+char* const LINE = "--------------------";
 int const MAX_FAILS = 3;
 
 int main() {
@@ -25,7 +26,7 @@ int main() {
         switch (option) {
         case 1:
             // balance
-            printf("Balance: %.2f\n", balance);
+            printf("%s\nBalance: %.2f\n%s\n", LINE, balance, LINE);
             if (actionscount % 4 == 0) {
                 actions = realloc(actions, sizeof(actions) + (4 * sizeof(int)));
             }
@@ -33,9 +34,17 @@ int main() {
             break;
         case 2:
             // cash withdrawal
+            if (actionscount % 4 == 0) {
+                actions = realloc(actions, sizeof(actions) + (4 * sizeof(int)));
+            }
+            actions[actionscount++] = 2;
             break;
         case 3:
             // cash deposit
+            if (actionscount % 3 == 0) {
+                actions = realloc(actions, sizeof(actions) + (4 * sizeof(int)));
+            }
+            actions[actionscount++] = 3;
             break;
         case 4:
             // quit
