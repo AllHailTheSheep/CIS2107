@@ -16,7 +16,7 @@ int main() {
     bool QUIT = false;
     double balance = 0.0;
     int actionscount = 0;
-    char** actions = malloc(sizeof(char*)*6);
+    int* actions = malloc(sizeof(int) * 4);
     int pin = getPIN();
     while (!QUIT) {
         printOptions();
@@ -26,7 +26,7 @@ int main() {
         case 1:
             // balance
             printf("Balance: %f\n", balance);
-            sprintf(*actions, "Balance: %f", balance);
+            actions[actionscount++] = 1;
             break;
         case 2:
             // cash withdrawal
@@ -37,7 +37,7 @@ int main() {
         case 4:
             // quit
             for(int i = 0; i < actionscount; i++) {
-                printf("%s\n", actions[i]);
+                printf("%d\n", actions[i]);
             }
             QUIT = true;
             break;
