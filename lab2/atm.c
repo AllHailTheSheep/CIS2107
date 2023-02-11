@@ -70,6 +70,8 @@ int getWithdrawalAmount(double bal) {
             return res;
         }
     }
+    printf("%s\n", "To many failures. Please try again.");
+    exit(EXIT_FAILURE);
 }
 
 int getPIN() {
