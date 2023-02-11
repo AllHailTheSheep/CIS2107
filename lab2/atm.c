@@ -53,7 +53,7 @@ int getOption() {
     char* onFail = "Not a valid option.";
     int fails = 0;
     while (true) {
-        int res = getIntR(prompt, onFail);
+        int res = getInt(prompt, onFail);
         if (res != 1 || res != 2 || res != 3 || res != 4 || res == NULL) {
             printf("%s\n", onFail);
             fails++;
@@ -68,7 +68,7 @@ int getPIN() {
     char* onFail = "Not a valid PIN.";
     int fails = 0;
     while (fails < MAX_FAILS) {
-        int res = getIntR(prompt, onFail);
+        int res = getInt(prompt, onFail);
         if (res <= 0 || res == NULL) {
             printf("%s\n", onFail);
             fails++;
