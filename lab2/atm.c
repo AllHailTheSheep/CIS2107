@@ -43,7 +43,7 @@ int getPIN() {
     int fails = 0;
     while (fails < MAX_FAILS) {
         int res = getIntR(prompt, onFail);
-        if (res < 0) {
+        if (res <= 0) {
             fails++;
         } else {
             return res;
