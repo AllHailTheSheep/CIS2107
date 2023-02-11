@@ -8,7 +8,6 @@ int getInt(char*, char*);
 int getIntR(char*, char*, int);
 void printOptions();
 int getIntAndValidate(char*, char*, int*, size_t);
-bool valueInArray(int, int*, size_t);
 
 int  OPTIONS[4] = {1, 2, 3, 4};
 
@@ -21,6 +20,7 @@ int main() {
         printOptions();
         int option = getIntAndValidate("Choose an option: ", "", OPTIONS, 4);
         printf("%d\n", option);
+        // TODO: switch statement instead of ifs
         if (option == 4) {
             QUIT = true;
         }
@@ -49,20 +49,13 @@ double getDoubleR(char* prompt, char* onFail, int fails) {
 	return i;
 }
 
-bool valueInArray(int val, int *arr, size_t n) {
-    // This function was borrowed from Dimitroff's answer to this StackOverflow question: https://stackoverflow.com/questions/39742123/check-if-value-is-already-present-in-array
-    for(size_t i = 0; i < n; i++) {
-        if(arr[i] == val)
-            return true;
-    }
-    return false;
-}
-
 int getIntAndValidate(char* prompt, char* onFail, int* valid, size_t size) {
     int res = getIntR(prompt, onFail, 0);
-    if (!valueInArray(res, valid, size)) {
-        printf("%s\n", "Not a valid option. Please try again.");
-        res = getIntAndValidate(prompt, onFail, valid, size);
+    bool flag = false;
+    for (size_t i = 0; i < size; i++) {
+        if (valid[i] == res) {
+            flag = true;
+        }
     }
     return res;
 }
