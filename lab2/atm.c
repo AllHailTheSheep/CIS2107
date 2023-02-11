@@ -26,7 +26,7 @@ int main() {
         case 1:
             // balance
             printf("Balance: %f\n", balance);
-            sprintf(**actions, "Balance: %f", balance);
+            sprintf(&actions, "Balance: %f", balance);
             break;
         case 2:
             // cash withdrawal
