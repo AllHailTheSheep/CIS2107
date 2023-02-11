@@ -44,18 +44,15 @@ int main() {
         }
     }
     return EXIT_SUCCESS;
-
 }
 
 int getOption() {
     char* prompt = "Choose an option: "; 
     char* onFail = "Not a valid option.";
-    int fails = 0;
     while (true) {
         int res = getInt(prompt, onFail);
         if (res != 1 || res != 2 || res != 3 || res != 4) {
             printf("%s\n", onFail);
-            fails++;
         } else {
             return res;
         }
