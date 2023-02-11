@@ -82,6 +82,7 @@ int getInt(char* prompt, char* onFail) {
 	scanf("%lf", &i);
 	if (i != (int)i) {
 		printf("\n%s\n", onFail);
+        printf("%s\n", "from getInt");
 		return -1;
 	}
 	return (int)i;
