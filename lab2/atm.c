@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-int getWithdrawalAmount();
+int getWithdrawalAmount(double, int);
+int getDepositAmount(int);
 int getOption();
 int getPIN();
 int getInt(char*);
@@ -16,7 +17,9 @@ int const MAX_FAILS = 3;
 int main() {
     bool QUIT = false;
     double balance = 50.0;
-    int transactioncount = 0;
+    int amtWithdrawn = 0;
+    int amtDeposited = 0;
+    int transactionCount = 0;
     int pin = getPIN();
     while (!QUIT) {
         printOptions();
@@ -28,18 +31,23 @@ int main() {
             break;
         case 2: ;
             // cash withdrawal
-            int amt = getWithdrawalAmount(balance);
+            int amt = getWithdrawalAmount(balance, amtWithdrawn);
             printReceipt(balance, -amt);
             balance -= amt;
-            transactioncount++;
+            amtWithdrawn += amt;
+            transactionCount++;
             break;
         case 3: ;
             // cash deposit
-            transactioncount++;
+            int amt = getDepositAmount(amtDeposited);
+            printReceipt(balance, amt);
+            balance += amt;
+            amtDeposited += amt;
+            transactionCount++;
             break;
         case 4: ;
             // quit
-            printf("Transaction count: %d\n", transactioncount);
+            printf("Transaction count: %d\n", transactionCount);
             QUIT = true;
             break;
         }
@@ -60,13 +68,32 @@ int getOption() {
     }
 }
 
-int getWithdrawalAmount(double bal) {
-    char* prompt = "Enter the amount to withdraw: ";
-    char* onFail = "Withdwal amounts must be a multiple of 20, more than zero and less than the amount in your account.\nThere is a $1000/day limit.";
+int getDepositAmount(int amtDeposited) {
+    char* prompt = "Enter the amount to deposit: ";
+    char* onFail = "Withdrawal amounts must be positive and non-decimal.";
     int fails = 0;
     while (fails < MAX_FAILS) {
         int res = getInt(prompt);
-        if (res <= 0 || res % 20 != 0 || res > bal) {
+        if (res <= 0) {
+            printf("%s\n", onFail);
+            fails++;
+        } else {
+            return res;
+        }
+    }
+    printf("%s\n", "To many failures. Please try again.");
+    exit(EXIT_FAILURE);
+
+
+}
+
+int getWithdrawalAmount(double bal, int amtWithdrawn) {
+    char* prompt = "Enter the amount to withdraw: ";
+    char* onFail = "Withdwal amounts must be a multiple of 20, positve, and less than the amount in your account.\nThere is a $1000/day limit.";
+    int fails = 0;
+    while (fails < MAX_FAILS) {
+        int res = getInt(prompt);
+        if (res <= 0 || res % 20 != 0 || res > bal || amtWithdrawn + res >= 1000) {
             printf("%s\n", onFail);
             fails++;
         } else {
@@ -106,7 +133,7 @@ int getInt(char* prompt) {
 }
 
 void printReceipt(double balance, int dx) {
-    printf("%s\nPrevoius balance: %f\n", LINE, balance);
+    printf("%s\nPrevoius balance: %.2f\n", LINE, balance);
     printf("Balance change: %.2f\n", (double) dx);
     printf("New balance = %.2f\n%s\n", (double) balance + dx, LINE);
 }
