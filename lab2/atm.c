@@ -2,12 +2,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-double getDouble(char*, char*);
-int getPIN();
+int getWithdrawalAmount();
 int getOption();
+int getPIN();
 int getInt(char*, char*);
 void printOptions();
-int getIntAndValidate(char*, char*, int*, size_t);
 
 int  OPTIONS[4] = {1, 2, 3, 4};
 char* const LINE = "--------------------";
@@ -15,9 +14,8 @@ int const MAX_FAILS = 3;
 
 int main() {
     bool QUIT = false;
-    double balance = 0.0;
-    int actionscount = 0;
-    int actions[32];
+    double balance = 50.0;
+    int transactioncount = 0;
     int pin = getPIN();
     while (!QUIT) {
         printOptions();
@@ -26,21 +24,19 @@ int main() {
         case 1: ;
             // balance
             printf("%s\nBalance: %.2f\n%s\n", LINE, balance, LINE);
-            actions[actionscount++] = 1;
             break;
         case 2: ;
             // cash withdrawal
-            actions[actionscount++] = 2;
+            getWithdrawalAmount(balance);
+            transactioncount++;
             break;
         case 3: ;
             // cash deposit
-            actions[actionscount++] = 3;
+            transactioncount++;
             break;
         case 4: ;
             // quit
-            for(int i = 0; i < actionscount; i++) {
-                printf("%d\n", actions[i]);
-            }
+            printf("Transaction count: %d\n", transactioncount);
             QUIT = true;
             break;
         }
@@ -55,6 +51,21 @@ int getOption() {
         int res = getInt(prompt, onFail);
         if (!(res == 1 || res == 2 || res == 3 || res == 4)) {
             printf("%s\n", onFail);
+        } else {
+            return res;
+        }
+    }
+}
+
+int getWithdrawalAmount(double bal) {
+    char* prompt = "Enter the amount to withdraw: ";
+    char* onFail = "Withdwal amounts must be a multiple of 20, more than zero and less than the amount in your account.\nThere is a $1000/day limit.";
+    int fails = 0;
+    while (fails < MAX_FAILS) {
+        int res = getInt(prompt, onFail);
+        if (res <= 0 || res % 20 != 0 || res > bal) {
+            printf("%s\n", onFail);
+            fails++;
         } else {
             return res;
         }
