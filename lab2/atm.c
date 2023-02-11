@@ -40,7 +40,7 @@ int main() {
         case 4: ;
             // quit
             int i;
-            for(i = 0; i < actionscount; i++) {
+            for(i = 2; i < actionscount; i++) {
                 printf("%d\n", actions[i]);
             }
             QUIT = true;
