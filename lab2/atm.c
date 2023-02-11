@@ -50,12 +50,15 @@ double getDoubleR(char* prompt, char* onFail, int fails) {
 }
 
 int getIntAndValidate(char* prompt, char* onFail, int* valid, size_t size) {
-    int res = getIntR(prompt, onFail, 0);
+    int res = getInt(prompt, onFail);
     bool flag = false;
     for (size_t i = 0; i < size; i++) {
         if (valid[i] == res) {
             flag = true;
         }
+    }
+    if (!flag) {
+        res = getIntAndValidate(prompt, onFail);
     }
     return res;
 }
