@@ -44,6 +44,7 @@ int getPIN() {
     while (fails <= MAX_FAILS) {
         int res = getIntR(prompt, onFail);
         if (res <= 0) {
+            printf("%s\n", onFail);
             fails++;
         } else {
             return res;
