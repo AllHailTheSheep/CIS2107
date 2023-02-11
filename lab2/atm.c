@@ -22,7 +22,6 @@ int main() {
     while (!QUIT) {
         printOptions();
         int option = getOption();
-        printf("%d\n", option);
         switch (option) {
         case 1: ;
             // balance
@@ -39,7 +38,7 @@ int main() {
             break;
         case 4: ;
             // quit
-            for(int i = 1; i < actionscount; i++) {
+            for(int i = 0; i < actionscount; i++) {
                 printf("%d\n", actions[i]);
             }
             QUIT = true;
