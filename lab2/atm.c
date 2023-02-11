@@ -17,7 +17,7 @@ int main() {
     bool QUIT = false;
     double balance = 0.0;
     int actionscount = 0;
-    int* actions = malloc(sizeof(int) * 4);
+    int actions[32] = malloc(sizeof(int) * 4);
     int pin = getPIN();
     while (!QUIT) {
         printOptions();
@@ -27,23 +27,14 @@ int main() {
         case 1:
             // balance
             printf("%s\nBalance: %.2f\n%s\n", LINE, balance, LINE);
-            if (actionscount % 4 == 0) {
-                actions = realloc(actions, sizeof(actions) + (4 * sizeof(int)));
-            }
             actions[actionscount++] = 1;
             break;
         case 2:
             // cash withdrawal
-            if (actionscount % 4 == 0) {
-                actions = realloc(actions, sizeof(actions) + (4 * sizeof(int)));
-            }
             actions[actionscount++] = 2;
             break;
         case 3:
             // cash deposit
-            if (actionscount % 3 == 0) {
-                actions = realloc(actions, sizeof(actions) + (4 * sizeof(int)));
-            }
             actions[actionscount++] = 3;
             break;
         case 4:
