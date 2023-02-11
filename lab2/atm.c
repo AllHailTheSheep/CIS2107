@@ -3,7 +3,8 @@
 #include <stdbool.h>
 
 double getDouble(char*, char*);
-int getPIN(char*, char*);
+int getPIN();
+int getOption();
 int getIntR(char*, char*);
 void printOptions();
 int getIntAndValidate(char*, char*, int*, size_t);
@@ -15,10 +16,10 @@ int main() {
     int pin;
     bool QUIT;
     QUIT = false;
-    pin = getPIN("Enter your PIN: ", "Not a valid PIN.");
+    pin = getPIN();
     while (!QUIT) {
         printOptions();
-        int option = getInt("Choose an option: ", "Not a valid option.");
+        int option = getOption();
         printf("%d\n", option);
         // TODO: switch statement instead of ifs
         if (option == 4) {
@@ -30,11 +31,15 @@ int main() {
 }
 
 int getOption() {
+    char* prompt = "Choose an option: "; 
+    char* onFail = "Not a valid option.";
     int fails = 0;
     return -1;
 }
 
-int getPIN(char* prompt, char* onFail) {
+int getPIN() {
+    char* prompt = "Enter your PIN: ";
+    char* onFail = "Not a valid PIN.";
     int fails = 0;
     while (fails < MAX_FAILS) {
         int res = getIntR(prompt, onFail);
@@ -44,7 +49,8 @@ int getPIN(char* prompt, char* onFail) {
             return res;
         }
     }
-    printf("%d", "To many failures. Please try again.");
+    printf("%s", "To many failures. Please try again.");
+    exit(EXIT_FAILURE);
 }
 
 int getIntR(char* prompt, char* onFail) {
