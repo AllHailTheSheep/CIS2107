@@ -27,7 +27,7 @@ int main() {
             break;
         case 2: ;
             // cash withdrawal
-            getWithdrawalAmount(balance);
+            int amt = getWithdrawalAmount(balance);
             transactioncount++;
             break;
         case 3: ;
