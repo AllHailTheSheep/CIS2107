@@ -22,7 +22,6 @@ int main() {
         printOptions();
         int option = getOption();
         printf("%d\n", option);
-        // TODO: switch sta
         switch (option) {
         case 1:
             // balance
@@ -54,7 +53,7 @@ int getOption() {
     int fails = 0;
     while (true) {
         int res = getInt(prompt, onFail);
-        if (res != 1 || res != 2 || res != 3 || res != 4 || res == NULL) {
+        if (res != 1 || res != 2 || res != 3 || res != 4) {
             printf("%s\n", onFail);
             fails++;
         } else {
@@ -69,7 +68,7 @@ int getPIN() {
     int fails = 0;
     while (fails < MAX_FAILS) {
         int res = getInt(prompt, onFail);
-        if (res <= 0 || res == NULL) {
+        if (res <= 0) {
             printf("%s\n", onFail);
             fails++;
         } else {
@@ -86,7 +85,7 @@ int getInt(char* prompt, char* onFail) {
 	scanf("%lf", &i);
 	if (i != (int)i) {
 		printf("\n%s\n", onFail);
-		return NULL;
+		return -1;
 	}
 	return (int)i;
 }
