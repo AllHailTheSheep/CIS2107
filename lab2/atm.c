@@ -39,8 +39,7 @@ int main() {
             break;
         case 4: ;
             // quit
-            int i;
-            for(i = actionscount; i > -1; i++) {
+            for(int i = 0; i < actionscount; i++) {
                 printf("%d\n", actions[i]);
             }
             QUIT = true;
