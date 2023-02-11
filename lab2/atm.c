@@ -31,18 +31,18 @@ int main() {
             break;
         case 2: ;
             // cash withdrawal
-            int amt = getWithdrawalAmount(balance, amtWithdrawn);
-            printReceipt(balance, -amt);
-            balance -= amt;
-            amtWithdrawn += amt;
+            int amtW = getWithdrawalAmount(balance, amtWithdrawn);
+            printReceipt(balance, -amtW);
+            balance -= amtW;
+            amtWithdrawn += amtW;
             transactionCount++;
             break;
         case 3: ;
             // cash deposit
-            int amt = getDepositAmount(amtDeposited);
-            printReceipt(balance, amt);
-            balance += amt;
-            amtDeposited += amt;
+            int amtD = getDepositAmount(amtDeposited);
+            printReceipt(balance, amtD);
+            balance += amtD;
+            amtDeposited += amtD;
             transactionCount++;
             break;
         case 4: ;
