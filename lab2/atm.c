@@ -25,7 +25,10 @@ int main() {
         switch (option) {
         case 1:
             // balance
-            printf("Balance: %f\n", balance);
+            printf("Balance: %.2f\n", balance);
+            if (actionscount + 1 % 4 == 0) {
+                actions = realloc(actions, sizeof(actions) + (4 * sizeof(int)));
+            }
             actions[actionscount++] = 1;
             break;
         case 2:
