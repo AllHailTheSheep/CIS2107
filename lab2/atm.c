@@ -51,7 +51,7 @@ int getOption() {
     char* onFail = "Not a valid option.";
     while (true) {
         int res = getInt(prompt, onFail);
-        if (res != 1 || res != 2 || res != 3 || res != 4) {
+        if (!(res == 1 || res == 2 || res == 3 || res == 4)) {
             printf("%s\n", onFail);
         } else {
             return res;
@@ -82,7 +82,6 @@ int getInt(char* prompt, char* onFail) {
 	scanf("%lf", &i);
 	if (i != (int)i) {
 		printf("\n%s\n", onFail);
-        printf("%s\n", "from getInt");
 		return -1;
 	}
 	return (int)i;
