@@ -17,7 +17,7 @@ int main() {
     bool QUIT = false;
     double balance = 0.0;
     int actionscount = 0;
-    int actions[32] = malloc(sizeof(int) * 4);
+    int actions[32];
     int pin = getPIN();
     while (!QUIT) {
         printOptions();
