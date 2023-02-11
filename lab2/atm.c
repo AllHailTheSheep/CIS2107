@@ -15,7 +15,7 @@ int main() {
     int pin;
     bool QUIT;
     QUIT = false;
-    pin = getInt("Enter your PIN: ", "Not a valid PIN.");
+    pin = getPIN("Enter your PIN: ", "Not a valid PIN.");
     while (!QUIT) {
         printOptions();
         int option = getInt("Choose an option: ", "Not a valid option.");
