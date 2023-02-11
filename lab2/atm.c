@@ -5,7 +5,7 @@
 double getDouble(char*, char*);
 int getPIN();
 int getOption();
-int getIntR(char*, char*);
+int getInt(char*, char*);
 void printOptions();
 int getIntAndValidate(char*, char*, int*, size_t);
 
@@ -13,17 +13,35 @@ int  OPTIONS[4] = {1, 2, 3, 4};
 int const MAX_FAILS = 3;
 
 int main() {
-    int pin;
-    bool QUIT;
-    QUIT = false;
-    pin = getPIN();
+    bool QUIT = false;
+    double balance = 0.0;
+    int actionscount = 0;
+    char** actions = malloc(sizeof(char*)*6);
+    int pin = getPIN();
     while (!QUIT) {
         printOptions();
         int option = getOption();
         printf("%d\n", option);
-        // TODO: switch statement instead of ifs
-        if (option == 4) {
+        // TODO: switch sta
+        switch (option) {
+        case 1:
+            // balance
+            printf("Balance: %f\n", balance);
+            sprintf(actions[actionscount++], "Balance: %f", balance);
+            break;
+        case 2:
+            // cash withdrawal
+            break;
+        case 3:
+            // cash deposit
+            break;
+        case 4:
+            // quit
+            for(int i = 0; i < actionscount; i++) {
+                printf("%s\n", actions[i]);
+            }
             QUIT = true;
+            break;
         }
     }
     return EXIT_SUCCESS;
@@ -34,7 +52,15 @@ int getOption() {
     char* prompt = "Choose an option: "; 
     char* onFail = "Not a valid option.";
     int fails = 0;
-    return -1;
+    while (true) {
+        int res = getIntR(prompt, onFail);
+        if (res != 1 || res != 2 || res != 3 || res != 4 || res == NULL) {
+            printf("%s\n", onFail);
+            fails++;
+        } else {
+            return res;
+        }
+    }
 }
 
 int getPIN() {
@@ -43,7 +69,7 @@ int getPIN() {
     int fails = 0;
     while (fails < MAX_FAILS) {
         int res = getIntR(prompt, onFail);
-        if (res <= 0) {
+        if (res <= 0 || res == NULL) {
             printf("%s\n", onFail);
             fails++;
         } else {
@@ -54,13 +80,13 @@ int getPIN() {
     exit(EXIT_FAILURE);
 }
 
-int getIntR(char* prompt, char* onFail) {
+int getInt(char* prompt, char* onFail) {
 	double i;
 	printf("%s", prompt);
 	scanf("%lf", &i);
 	if (i != (int)i) {
 		printf("\n%s\n", onFail);
-		return -1;
+		return NULL;
 	}
 	return (int)i;
 }
