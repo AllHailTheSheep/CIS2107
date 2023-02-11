@@ -58,7 +58,7 @@ int getIntAndValidate(char* prompt, char* onFail, int* valid, size_t size) {
         }
     }
     if (!flag) {
-        res = getIntAndValidate(prompt, onFail);
+        res = getIntAndValidate(prompt, onFail, valid, size);
     }
     return res;
 }
