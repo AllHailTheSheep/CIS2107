@@ -41,7 +41,7 @@ int getPIN() {
     char* prompt = "Enter your PIN: ";
     char* onFail = "Not a valid PIN.";
     int fails = 0;
-    while (fails <= MAX_FAILS) {
+    while (fails < MAX_FAILS) {
         int res = getIntR(prompt, onFail);
         if (res <= 0) {
             printf("%s\n", onFail);
