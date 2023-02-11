@@ -24,20 +24,20 @@ int main() {
         int option = getOption();
         printf("%d\n", option);
         switch (option) {
-        case 1:
+        case 1: ;
             // balance
             printf("%s\nBalance: %.2f\n%s\n", LINE, balance, LINE);
             actions[actionscount++] = 1;
             break;
-        case 2:
+        case 2: ;
             // cash withdrawal
             actions[actionscount++] = 2;
             break;
-        case 3:
+        case 3: ;
             // cash deposit
             actions[actionscount++] = 3;
             break;
-        case 4:
+        case 4: ;
             // quit
             int i;
             for(i = 0; i < actionscount; i++) {
