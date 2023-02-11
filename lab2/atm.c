@@ -96,7 +96,7 @@ int getInt(char* prompt) {
 	printf("%s", prompt);
 	scanf("%lf", &i);
 	if (i != (int)i) {
-		printf("\n%s\n", "Not an integer!");
+		printf("%s\n", "Not an integer!");
 		exit(EXIT_FAILURE);
 	}
 	return (int)i;
