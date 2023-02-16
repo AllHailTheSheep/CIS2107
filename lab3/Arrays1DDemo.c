@@ -9,12 +9,17 @@ int main() {
     int arr0[6];
     fillArray(arr0, 6, 0, 10);
     printArray(arr0, 6);
+    int arr1[100];
+    fillArray(arr1, 100, 0, 100);
+    printArray(arr1, 100);
 }
 
 void printArray(int* arr, size_t size) {
     for (size_t i = 0; i < size; i++) {
         printf("%d ", arr[i]);
     }
+    printf("\n");
+    return;
 }
 
 void fillArray(int* arr, size_t size, int rand_min, int rand_max) {
