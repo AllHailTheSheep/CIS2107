@@ -69,7 +69,7 @@ int findWithRange(int* arr, size_t size, int mindex, int maxdex) {
 void reverseArray(int* arr, size_t size) {
     int new[size];
     memcpy(new, arr, size);
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i <= size; i++) {
         arr[size - i] = arr[i];
     }
     return;
