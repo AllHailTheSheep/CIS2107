@@ -29,7 +29,7 @@ int main() {
     
     // reverseArray demo
     reverseArray(arr, sizeof(arr));
-    printArray(arr, sizeof(arr));
+    // printArray(arr, sizeof(arr));
 }
 
 void printArray(int* arr, size_t size) {
@@ -69,10 +69,12 @@ int findWithRange(int* arr, size_t size, int mindex, int maxdex) {
 void reverseArray(int* arr, size_t size) {
     // thanks to https://stackoverflow.com/questions/47745149/reverse-an-integer-array-in-c
     // for the idea to do it in-place
-    for (int i = 0, j = size; i < j; i++, j--) {
+    int i = 0, j = size - 1;
+    while (i > j) {
         int swp = arr[i];
         arr[i] = arr[j];
         arr[j] = swp;
+        i++; j--;
     }
     return;
 }
