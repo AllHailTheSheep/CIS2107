@@ -12,8 +12,8 @@ void reverseArray(int*, size_t);
 int main() {
     int arr[100];
     // fillArray demo
-    fillArray(arr, 100, 0, 100);
-    printArray(arr, 100);
+    fillArray(arr, sizeof(arr)/sizeof(arr[0]), 0, 100);
+    printArray(arr, sizeof(arr)/sizeof(arr[0]));
 
     // findWithRange demo
     // will fail because min is less than 0
@@ -23,13 +23,13 @@ int main() {
     // will fail because mindex == maxdex
     // findWithRange(arr, 100, 1, 1);
     // note that the mindex and maxdex params are interchangeable
-    printf("max from 0-25: %d\n", findWithRange(arr, 100, 0, 25));
-    printf("max from 25-0: %d\n", findWithRange(arr, 100, 25, 0));
-    printf("max from 90-99: %d\n", findWithRange(arr, 100, 90, 99));
+    printf("max from 0-25: %d\n", findWithRange(arr, sizeof(arr)/sizeof(arr[0]), 0, 25));
+    printf("max from 25-0: %d\n", findWithRange(arr, sizeof(arr)/sizeof(arr[0]), 25, 0));
+    printf("max from 90-99: %d\n", findWithRange(arr, sizeof(arr)/sizeof(arr[0]), 90, 99));
     
     // reverseArray demo
     reverseArray(arr, sizeof(arr)/sizeof(arr[0]));
-    // printArray(arr, sizeof(arr));
+    printArray(arr, sizeof(arr));
 }
 
 void printArray(int* arr, size_t size) {
