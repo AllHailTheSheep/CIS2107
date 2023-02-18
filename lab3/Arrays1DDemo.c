@@ -67,10 +67,12 @@ int findWithRange(int* arr, size_t size, int mindex, int maxdex) {
 }
 
 void reverseArray(int* arr, size_t size) {
-    int new[size];
-    memcpy(new, arr, size);
-    for (int i = 0; i <= size; i++) {
-        arr[size - i] = arr[i];
+    // thanks to https://stackoverflow.com/questions/47745149/reverse-an-integer-array-in-c
+    // for the idea to do it in-place
+    for (int i = 0, j = size - 1; i < j; i++, j--) {
+        int swp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = swp;
     }
     return;
 }
