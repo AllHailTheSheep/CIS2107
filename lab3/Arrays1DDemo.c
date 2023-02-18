@@ -4,7 +4,7 @@
 #include <limits.h>
 #include <string.h>
 
-void printArray(int*, size_t);
+void printArray(int*, size_t, char*);
 void fillArray(int*, size_t, int, int);
 int findWithRange(int*, size_t, int, int);
 void reverseArray(int*, size_t);
@@ -13,7 +13,7 @@ int main() {
     int arr[100];
     // fillArray demo
     fillArray(arr, sizeof(arr)/sizeof(arr[0]), 0, 100);
-    printArray(arr, sizeof(arr)/sizeof(arr[0]));
+    printArray(arr, sizeof(arr)/sizeof(arr[0]), "");
 
     // findWithRange demo
     // will fail because min is less than 0
@@ -29,10 +29,13 @@ int main() {
     
     // reverseArray demo
     reverseArray(arr, sizeof(arr)/sizeof(arr[0]));
-    printArray(arr, sizeof(arr)/sizeof(arr[0]));
+    printArray(arr, sizeof(arr)/sizeof(arr[0]), "Reversed array:");
 }
 
-void printArray(int* arr, size_t size) {
+void printArray(int* arr, size_t size, char* prefix) {
+    if (strlen(prefix) != 0) {
+        printf("%s", prefix);
+    }
     for (size_t i = 0; i < size; i++) {
         printf("%d ", arr[i]);
     }
