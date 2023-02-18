@@ -70,7 +70,7 @@ void reverseArray(int* arr, size_t size) {
     // thanks to https://stackoverflow.com/questions/47745149/reverse-an-integer-array-in-c
     // for the idea to do it in-place
     int i = 0, j = size - 1;
-    while (i > j) {
+    while (j > i) {
         int swp = arr[j];
         arr[j] = arr[i];
         arr[i] = swp;
