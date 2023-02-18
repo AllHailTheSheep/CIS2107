@@ -71,9 +71,9 @@ void reverseArray(int* arr, size_t size) {
     // for the idea to do it in-place
     int i = 0, j = size - 1;
     while (i > j) {
-        int swp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = swp;
+        int swp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = swp;
         i++; j--;
     }
     return;
