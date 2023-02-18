@@ -29,7 +29,7 @@ int main() {
     
     // reverseArray demo
     reverseArray(arr, sizeof(arr)/sizeof(arr[0]));
-    printArray(arr, sizeof(arr)/sizeof(arr[0]), "Reversed array:");
+    printArray(arr, sizeof(arr)/sizeof(arr[0]), "Reversed array: ");
 }
 
 void printArray(int* arr, size_t size, char* prefix) {
