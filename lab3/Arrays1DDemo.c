@@ -28,7 +28,7 @@ int main() {
     printf("max from 90-99: %d\n", findWithRange(arr, 100, 90, 99));
     
     // reverseArray demo
-    reverseArray(arr, sizeof(arr));
+    reverseArray(arr, sizeof(arr)/sizeof(arr[0]));
     // printArray(arr, sizeof(arr));
 }
 
