@@ -5,7 +5,7 @@
 #include <string.h>
 #include <time.h>
 
-// 
+// function prototypes
 void printArray(int*, size_t, char*);
 void fillArray(int*, size_t, int, int);
 int findWithRange(int*, size_t, int, int);
