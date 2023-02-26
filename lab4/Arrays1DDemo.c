@@ -29,7 +29,7 @@ int main() {
     // findWithRange(arr, SIZE, 0, SIZE + 1);
     // will fail because mindex == maxdex
     // findWithRange(arr, SIZE, 1, 1);
-    // note that the mindex and maxdex params are interchangeable
+    // note that the mindex and maxdex ps are interchangeable
     printf("max from 0-%d: %d\n", SIZE/4, findWithRange(arr, SIZE, 0, SIZE/4));
     printf("max from %d-0: %d\n", SIZE/4, findWithRange(arr, SIZE, SIZE/4, 0));
     printf("max from %d-%d: %d\n\n", SIZE - (SIZE/10), SIZE - 1, findWithRange(arr, SIZE, (SIZE - (SIZE/10)), SIZE - 1));
@@ -47,7 +47,7 @@ int main() {
     // reverseSelectedRangeWithinArray(arr, SIZE, 0, SIZE + 1);
     // will fail because min == max
     // reverseSelectedRangeWithinArray(arr, SIZE, 1, 1);
-    // again, note that mindex and maxdex params are interchangeable
+    // again, note that mindex and maxdex ps are interchangeable
     reverseSelectedRangeWithinArray(arr, SIZE, 0, SIZE/4);
     char* str = malloc(64 * sizeof(char));
     snprintf(str, 64, "reversed from 0-%d: ", SIZE/4);
@@ -80,10 +80,10 @@ int main() {
 
 /**
  * Prints an array. If prefix is "" then it will not print anything.
- * @param arr the array to print.
- * @param size the size of the array passed in.
- * @param prefix the prefix to print before the array is printed.
- * TODO: add a suffix param?
+ * @p arr the array to print.
+ * @p size the size of the array passed in.
+ * @p prefix the prefix to print before the array is printed.
+ * TODO: add a suffix p?
 */
 void printArray(int* arr, size_t size, char* prefix) {
     if (strlen(prefix) != 0) {
@@ -99,10 +99,10 @@ void printArray(int* arr, size_t size, char* prefix) {
 /**
  * Fills an array randomly with numbers between rand_min and rand_max (inclusive).
  * Make sure to uncomment srand(time(NULL)) for less reproducible results.
- * @param arr the pre-allocated array to fill.
- * @param size the size of the array to be filled.
- * @param rand_min the minimum value to be used.
- * @param rand_max the maximum value to be used.
+ * @p arr the pre-allocated array to fill.
+ * @p size the size of the array to be filled.
+ * @p rand_min the minimum value to be used.
+ * @p rand_max the maximum value to be used.
 */
 void fillArray(int* arr, size_t size, int rand_min, int rand_max) {
     // srand(time(NULL));
@@ -114,10 +114,10 @@ void fillArray(int* arr, size_t size, int rand_min, int rand_max) {
 
 /**
  * Finds the maximum value between two indexes inclusively.
- * @param arr the array to search.
- * @param size the size of the array to search.
- * @param mindex the start index.
- * @param maxdex the end index.
+ * @p arr the array to search.
+ * @p size the size of the array to search.
+ * @p mindex the start index.
+ * @p maxdex the end index.
  * @return the maximum value between the indexes.
 */
 int findWithRange(int* arr, size_t size, int mindex, int maxdex) {
@@ -141,8 +141,8 @@ int findWithRange(int* arr, size_t size, int mindex, int maxdex) {
 
 /**
  * Reverses an array.
- * @param arr the array to reverse.
- * @param size the size of the array to reverse.
+ * @p arr the array to reverse.
+ * @p size the size of the array to reverse.
 */
 void reverseArray(int* arr, size_t size) {
     // thanks to https://stackoverflow.com/questions/47745149/reverse-an-integer-array-in-c
@@ -159,10 +159,10 @@ void reverseArray(int* arr, size_t size) {
 
 /**
  * Reverses from the lower bound to the upper bound inclusively.
- * @param arr array to reverse part of.
- * @param size the size of the array to reverse part of.
- * @param mindex the index to start reversal at.
- * @param maxded the index to end reversal at.
+ * @p arr array to reverse part of.
+ * @p size the size of the array to reverse part of.
+ * @p mindex the index to start reversal at.
+ * @p maxded the index to end reversal at.
 */
 void reverseSelectedRangeWithinArray(int* arr, size_t size, int mindex, int maxdex) {
     if (mindex > maxdex) {
@@ -186,10 +186,10 @@ void reverseSelectedRangeWithinArray(int* arr, size_t size, int mindex, int maxd
 
 /** 
  * Finds the index where the numbers in toFind occur in order in the array.
- * @param arr the array to search.
- * @param arr_s the size of the array to search.
- * @param toFind the sequence to search for.
- * @param toFind_s the size of the sequence to search for.
+ * @p arr the array to search.
+ * @p arr_s the size of the array to search.
+ * @p toFind the sequence to search for.
+ * @p toFind_s the size of the sequence to search for.
  * @return the index the sequence was found begins at.
 */
 int findSequence(int* arr, size_t arr_s, int* toFind, size_t toFind_s) {
