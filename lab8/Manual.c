@@ -321,7 +321,7 @@ void endsWithed(char *string[], int size) {
     for (int i = 0; i < size; i++) {
         int len = strlen(string[i]);
         if (tolower(string[i][len - 1]) == 'd') {
-            printf("%s\n\n", string[i]);
+            printf("%s\n", string[i]);
         }
     }
 }
