@@ -1,5 +1,6 @@
 #include "lab9.h"
-#include <stdio.h>
+
+// returns 1 if all chars in s are letters, 0 otherwise.
 int all_letters(char *s) {
     // iterate through the string until we hit the terminator char
     while (*s != '\0') {

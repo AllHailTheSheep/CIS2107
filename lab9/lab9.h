@@ -1,11 +1,14 @@
 #ifndef LAB9
 #define LAB9
+char convert_case(char c);
+
 int all_letters(char *s); // returns 1 if all characters are letters
 int num_in_range(char *s, int b, int t); // returns the num of characters such that b<=c<=t
 int diff(char *s1, char *s2); // returns the amount of moves (substitutions, insertions, deletions) that would make the string equal
 void shorten(char *s, int new_len); // shortens the length of s to new_len. if new_len>sizeof(s), there is no change
 int len_diff(char *s1, char *s2); // returns the length of s1 - s2
 void rm_left_space(char *s); // removes whatespace from the begninning of the string
+// TODO: after here
 void rm_right_space(char *s); // removes whatespace from the end of the string
 void rm_space(char *s); // removes whitespace from the begninning and end of the string
 int find(char *h, char *n); // returns the index of the first occurence of n in h or -1
@@ -23,4 +26,5 @@ char * replace(char *s, char *pat, char *rep); // returns a new string with ever
 char * str_connect(char **strs, int n, char c); // returns a new string of the first n strings in strs seperated by c
 void rm_empties(char **words); // removes all strings with size 0
 char ** str_chop_all(char *s, char c); // returns array of strings where each element is from s split by delim c
+
 #endif
