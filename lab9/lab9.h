@@ -8,13 +8,12 @@ int diff(char *s1, char *s2); // returns the amount of moves (substitutions, ins
 void shorten(char *s, int new_len); // shortens the length of s to new_len. if new_len>sizeof(s), there is no change
 int len_diff(char *s1, char *s2); // returns the length of s1 - s2
 void rm_left_space(char *s); // removes whatespace from the begninning of the string
-// TODO: after here
 void rm_right_space(char *s); // removes whatespace from the end of the string
 void rm_space(char *s); // removes whitespace from the begninning and end of the string
 int find(char *h, char *n); // returns the index of the first occurence of n in h or -1
 char * ptr_to(char *h, char *n); // returns a pointer to the first occurence of n in h or null
-void is_empty(char *s); // returns 1 if s is null, only '\0' of only whitespace
-char * str_zip(char *s1, char *s2); // returns a new string with s1 and s2 interleaved (i.e. Apple and Orange becomes AOprpalnege)
+int is_empty(char *s); // returns 1 if s is null, only '\0' of only whitespace
+char * str_zipchar (char *s1, char *s2); // returns a new string with s1 and s2 interleaved (i.e. Apple and Orange becomes AOprpalnege)
 void capitalize(char *s); // modifies s so the first letter of each word is uppercase, all else are lowercase
 int strcmp_ign_case(char *s1, char *s2); // compares to words ignoring case. returns positive if s1 appears after s2 in dict, negative if not, 0 if equal
 void take_last(char *s, int n); // modifies s so that it only consists of the last n characters
